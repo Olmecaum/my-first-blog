@@ -1,0 +1,58 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata|VT323" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <title> slightly interesting news</title>
+    </head>
+
+    <div class = "page-header">
+        <h1><a href="/"> KLON radio</a></h1>
+    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <body>
+
+    <div class="content container">
+        <div class="row">
+            <div class=""col-md-8>
+        {% block content %}
+        {% for post in posts%}
+             <div class ="post">
+                <h1><a href="{% url 'post_detail' pk=post.pk%}">{{post.title}}</a></h1>
+                <div class="date">
+                    <p>published: {{post.published_date}}</p>
+                </div>
+                <p> {{post.text|linebreaksbr}}</p>
+             </div>
+            {% endfor %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+
+        <div>
+            <h1><a href="/">Title that leads to the article link [1]</a></h1>
+            <p>published: article date- if you want to</p>
+            <p> TEXT SUM for the article [1]...</p>
+        </div>
+        <div>
+            <h1><a href="/">Title that leads to the article link [2]</a></h1>
+            <p> TEXT SUM for the article [2]...</p>
+        </div>
+
+        <div>
+            <h1><a href="/">Title that leads to the article link [3]</a></h1>
+            <p> TEXT SUM for the article [3]...</p>
+        </div>
+    </body>
+</html>
