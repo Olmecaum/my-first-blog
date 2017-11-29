@@ -3,17 +3,6 @@ from django.utils import timezone
 from .forms import PostForm
 from .models import Post  # dot before model means current directory
 from django.shortcuts import redirect
-from gensim.summarization import summarize
-
-
-#script to handle freshly inputted text
-
-def t_sum(text, summary_ratio= 0.1):
-    summary = summarize(text, split=True, ratio= summary_ratio)
-
-    return summary
-
-
 
 # Create your views here.
 

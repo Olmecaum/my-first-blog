@@ -6,8 +6,11 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User')  # link to another module
     title = models.CharField(max_length=200)
     text = models.TextField()
-    created_date = models.DateField(
-        default=timezone.now)
+    url = models.URLField(blank=True, null=True)
+    source = models.CharField(max_length=100, null=True)
+
+    #created_date = models.DateField(
+        #default=timezone.now)
     published_date = models.DateTimeField(
         blank=True, null=True
     )
