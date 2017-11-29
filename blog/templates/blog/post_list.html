@@ -28,9 +28,9 @@
         {% block content %}
         {% for post in posts%}
              <div class ="post">
-                <h1><a href="{% url 'post_detail' pk=post.pk%}">{{post.title}}</a></h1>
+                <h1><a href={{post.url}} >{{post.title}}</a></h1>
                 <div class="date">
-                    <p>published: {{post.published_date}}</p>
+                    <p>published: {{post.published_date}}           source: {{post.source}}</p>
                 </div>
                 <p> {{post.text|linebreaksbr}}</p>
              </div>
@@ -40,19 +40,6 @@
         </div>
     </div>
 
-        <div>
-            <h1><a href="/">Title that leads to the article link [1]</a></h1>
-            <p>published: article date- if you want to</p>
-            <p> TEXT SUM for the article [1]...</p>
-        </div>
-        <div>
-            <h1><a href="/">Title that leads to the article link [2]</a></h1>
-            <p> TEXT SUM for the article [2]...</p>
-        </div>
 
-        <div>
-            <h1><a href="/">Title that leads to the article link [3]</a></h1>
-            <p> TEXT SUM for the article [3]...</p>
-        </div>
     </body>
 </html>
