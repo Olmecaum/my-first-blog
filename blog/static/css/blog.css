@@ -1,7 +1,7 @@
 h1, h2, h3, h4 a {
     color: #00FF00;
     font-size: 28pt;
-    font-family:'Inconsolata', monospace;
+    font-family:'Pathway Gothic one', sans-serif;
 }
 
 body {
@@ -10,14 +10,20 @@ body {
 
 }
 
+footer{
+    padding-left:34px;
+    font-family:'VT323',monospace;
+}
+
+
 .pageheader {
-    background-color: #ff9400;
+    background-color: ##94b8b8;
     margin-top :0;
     padding: 20px 20px 20px 40px
 }
 
 .page-header h1, .pageheader h1 a, .page-header h1 a:visited, .page-header h1 a:active{
-    color #ffffff;
+    color #94b8b8;
     font-size: 36pt;
     text-decoration: none;
 

@@ -1,17 +1,58 @@
 {% load staticfiles %}
 <html>
     <head>
+    <style>
+        ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #808080;
+    }
+
+    li {
+        float: left;
+        border-right:1px solid #bbb;
+    }
+
+    li:last-child {
+        border-right: none;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 8px 10px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color:#737373;
+    }
+
+    .active {
+        background-color: #66cc66;
+    }
+    </style>
+
         <title>KLON radio</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='//fonts.googleapis.com/css?family=Inconsolata|VT323' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Pathway+Gothic+One|VT323' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
+        <ul>
+            <li> <a class="active" href={% url 'post_list'%}>Home</a></li>
+            <li> <a href={% url 'freq_analysis'%}>Frequency analysis</a></li>
+            <li style=" float:right"><a href={% url 'about' %}>About</a></li>
+        </ul>
         <div class="page-header">
             <h1><a href="/">KLON radio</a></h1>
             <a href="{% url 'post_new %'}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
         </div>
+
 
         <div class="content container">
             <div class="row">

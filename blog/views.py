@@ -2,15 +2,20 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .forms import PostForm
 from .models import Post  # dot before model means current directory
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render_to_response
 
 # Create your views here.
 
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
     # {} is a place to add some things for the template to use
+
+# for tomorrow
+def freq_analysis(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    return render(request, 'blog/freq_analysis.html', {'posts': posts})
 
 
 def post_detail(request,pk):
@@ -30,6 +35,10 @@ def post_new(request):
     else:
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
+
+
+def about(request):
+    return render_to_response('blog/about.html')
 
 
 def post_edit(request, pk):
